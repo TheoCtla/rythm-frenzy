@@ -27,24 +27,25 @@ function gameLoop(timeStamp){
     // Pass the time to the update
     update();
     draw();
+    drawTab();
 
     // Keep requesting new frames
     window.requestAnimationFrame(gameLoop);
 }
 
 function draw(){
+    
+    colorCercle();
 
     context.clearRect(0, 0, canvas.width, canvas.height);
     // Draw a cercle
     
-    context.fillStyle = '#ee1818';
-    context.beginPath();
+    context.beginPath()
     context.arc(cercleX, cercleY, 35, 0, 2 * Math.PI);
     context.fill();
     context.strokeStyle = 'black';
     context.stroke();
 
-    drawTab()
 }
 
 function update() {
@@ -82,6 +83,47 @@ function drawTab () {
     context.lineTo(600, 550);
     context.stroke();
 
+    context.beginPath()
+    context.fillStyle = '#FF0000';
+    context.arc(50, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
+
+    context.beginPath()
+    context.fillStyle = '#FAFF00';
+    context.arc(150, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
+
+    context.beginPath()
+    context.fillStyle = '#24FF00';
+    context.arc(250, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
+    
+    context.beginPath()
+    context.fillStyle = '#00F0FF';
+    context.arc(350, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
+
+    context.beginPath()
+    context.fillStyle = '#001AFF';
+    context.arc(450, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
+
+    context.beginPath()
+    context.fillStyle = '#BD00FF';
+    context.arc(550, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = 'black';
+    context.stroke();
 }
 
 function randCercleX() {
@@ -90,3 +132,24 @@ function randCercleX() {
     return rand
 }
 
+function colorCercle() {
+
+    if (cercleX == 50) {
+        context.fillStyle = '#FF0000';
+    } 
+    else if (cercleX == 150) {
+        context.fillStyle = '#FAFF00';
+    }
+    else if (cercleX == 250) {
+        context.fillStyle = '#24FF00'
+    }
+    else if (cercleX == 350) {
+        context.fillStyle = '#00F0FF'
+    }
+    else if (cercleX == 450) {
+        context.fillStyle = '#001AFF'
+    }
+    else {
+        context.fillStyle = '#BD00FF'
+    }
+}
