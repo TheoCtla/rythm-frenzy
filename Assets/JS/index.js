@@ -37,7 +37,7 @@ function gameLoop(timeStamp){
 //    console.log(arrayEntityCercle);
     
     slow += 1
-    if (slow == 70){
+    if (slow == 100){
         let pouet = createCercle()
         arrayEntityCercle.push(pouet)
         slow = 0
