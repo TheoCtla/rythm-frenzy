@@ -1,11 +1,15 @@
 "use strict";
 let canvas;
 let context;
-let cercleX = randCercleX()
+
 let cercleY = 0
 let secondsPassed = 0;
 let oldTimeStamp = 0;
 let movingSpeed = 50;
+let arrayEntityCercle = [];
+let slow = 0
+let test = createCercle()
+arrayEntityCercle.push(test)
 
 window.onload = init;
 
@@ -19,37 +23,48 @@ function init(){
 
 function gameLoop(timeStamp){
     // Calculate how much time has passed
-    secondsPassed = (timeStamp - oldTimeStamp) / 0.001;
+    secondsPassed = (timeStamp - oldTimeStamp) / 100;
     oldTimeStamp = timeStamp;
     // Move forward in time with a maximum amount
     secondsPassed = Math.min(secondsPassed, 0.1);
     
     // Pass the time to the update
-    update();
-    draw();
+    context.clearRect(0, 0, canvas.width, canvas.height);
     drawTab();
-
+    console.log(arrayEntityCercle);
+    draw(arrayEntityCercle);
+    update(arrayEntityCercle);
+//    console.log(arrayEntityCercle);
+    
+    slow += 1
+    if (slow == 70){
+        let pouet = createCercle()
+        arrayEntityCercle.push(pouet)
+        slow = 0
+} 
     // Keep requesting new frames
     window.requestAnimationFrame(gameLoop);
 }
 
-function draw(){
-    
-    colorCercle();
+function draw(arrayEntityCercle){
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
     // Draw a cercle
+    for (let i = 0; i < arrayEntityCercle.length; i++) {
+        colorCercle(arrayEntityCercle[i]);
+        context.beginPath()
+        context.arc(arrayEntityCercle[i].cercleX, arrayEntityCercle[i].cercleY, 35, 0, 2 * Math.PI);
+        context.fill();
+        context.strokeStyle = 'black';
+        context.stroke();
+    }
     
-    context.beginPath()
-    context.arc(cercleX, cercleY, 35, 0, 2 * Math.PI);
-    context.fill();
-    context.strokeStyle = 'black';
-    context.stroke();
-
 }
 
-function update() {
-    cercleY += (movingSpeed * secondsPassed);
+function update(arrayEntityCercle) {
+    for (let i = 0; i < arrayEntityCercle.length; i++){
+        cercleY += (movingSpeed * secondsPassed);
+        arrayEntityCercle[i].cercleY += (movingSpeed * secondsPassed)/2;
+}
 }
 
 function drawTab () {
@@ -132,24 +147,34 @@ function randCercleX() {
     return rand
 }
 
-function colorCercle() {
+function colorCercle(arrayEntityCercle) {
 
-    if (cercleX == 50) {
+
+    if (arrayEntityCercle.cercleX == 50) {
         context.fillStyle = '#FF0000';
     } 
-    else if (cercleX == 150) {
+    else if (arrayEntityCercle.cercleX == 150) {
         context.fillStyle = '#FAFF00';
     }
-    else if (cercleX == 250) {
+    else if (arrayEntityCercle.cercleX == 250) {
         context.fillStyle = '#24FF00'
     }
-    else if (cercleX == 350) {
+    else if (arrayEntityCercle.cercleX == 350) {
         context.fillStyle = '#00F0FF'
     }
-    else if (cercleX == 450) {
+    else if (arrayEntityCercle.cercleX == 450) {
         context.fillStyle = '#001AFF'
     }
     else {
         context.fillStyle = '#BD00FF'
     }
+}
+
+function createCercle() {
+    let cercleX = randCercleX()
+    var cercle = {
+        cercleY : 0,
+        cercleX : cercleX
+    }
+    return cercle
 }
