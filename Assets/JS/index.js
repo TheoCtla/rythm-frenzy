@@ -14,10 +14,14 @@ let compteur = document.getElementById("compteur");
 let erreur = document.getElementById("erreur");
 let point = 0;
 let lose = 5;
+let button = document.getElementById("button");
 
 arrayEntityCercle.push(test);
 
-window.onload = init;
+// window.onload = init;
+
+button.onclick = init();
+console.log(button.onclick)
 
 function init() {
     // Get a reference to the canvas
