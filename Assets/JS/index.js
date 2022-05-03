@@ -1,7 +1,6 @@
 "use strict";
-let canvas;
-let context;
-
+let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
 let cercleY = 0;
 let secondsPassed = 0;
 let oldTimeStamp = 0;
@@ -14,20 +13,19 @@ let compteur = document.getElementById("compteur");
 let erreur = document.getElementById("erreur");
 let point = 0;
 let lose = 5;
-let button = document.getElementById("button");
+let button = document.getElementById("start");
 
 arrayEntityCercle.push(test);
 
-// window.onload = init;
+canvas.style.display = "none";
 
-button.onclick = init();
-console.log(button.onclick)
+button.onclick = init;
+button.addEventListener("click", () => {
+    button.style.display = "none";
+    canvas.style.display = "block";
+});
 
 function init() {
-    // Get a reference to the canvas
-    canvas = document.getElementById("canvas");
-    context = canvas.getContext("2d");
-
     window.requestAnimationFrame(gameLoop);
 }
 
@@ -68,12 +66,12 @@ document.addEventListener("keyup", (e) => {
         arrayEntityCercle[0].cercleY < 675
     ) {
         if (
-            (e.key == "q" && arrayEntityCercle[0].cercleX == 50) ||
-            (e.key == "s" && arrayEntityCercle[0].cercleX == 150) ||
-            (e.key == "d" && arrayEntityCercle[0].cercleX == 250) ||
-            (e.key == "k" && arrayEntityCercle[0].cercleX == 350) ||
-            (e.key == "l" && arrayEntityCercle[0].cercleX == 450) ||
-            (e.key == "m" && arrayEntityCercle[0].cercleX == 550)
+            (e.key.toLowerCase() == "q" && arrayEntityCercle[0].cercleX == 50) ||
+            (e.key.toLowerCase() == "s" && arrayEntityCercle[0].cercleX == 150) ||
+            (e.key.toLowerCase() == "d" && arrayEntityCercle[0].cercleX == 250) ||
+            (e.key.toLowerCase() == "k" && arrayEntityCercle[0].cercleX == 350) ||
+            (e.key.toLowerCase() == "l" && arrayEntityCercle[0].cercleX == 450) ||
+            (e.key.toLowerCase() == "m" && arrayEntityCercle[0].cercleX == 550)
         ) {
             point += 1;
             arrayEntityCercle.shift();
