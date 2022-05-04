@@ -14,7 +14,7 @@ let erreur = document.getElementById("erreur");
 let point = 0;
 let lose = 5;
 let button = document.getElementById("start");
-
+let audio = document.getElementById("audio");
 arrayEntityCercle.push(test);
 
 canvas.style.display = "none";
@@ -23,6 +23,7 @@ button.onclick = init;
 button.addEventListener("click", () => {
     button.style.display = "none";
     canvas.style.display = "block";
+    audio.play();
 });
 
 function init() {
@@ -56,6 +57,8 @@ function gameLoop(timeStamp) {
     if (lose > 0) {
         window.requestAnimationFrame(gameLoop);
     } else {
+        audio.pause();
+        audio.currentTime = 0;
         alert("null");
     }
 }
@@ -66,11 +69,16 @@ document.addEventListener("keyup", (e) => {
         arrayEntityCercle[0].cercleY < 675
     ) {
         if (
-            (e.key.toLowerCase() == "q" && arrayEntityCercle[0].cercleX == 50) ||
-            (e.key.toLowerCase() == "s" && arrayEntityCercle[0].cercleX == 150) ||
-            (e.key.toLowerCase() == "d" && arrayEntityCercle[0].cercleX == 250) ||
-            (e.key.toLowerCase() == "k" && arrayEntityCercle[0].cercleX == 350) ||
-            (e.key.toLowerCase() == "l" && arrayEntityCercle[0].cercleX == 450) ||
+            (e.key.toLowerCase() == "q" &&
+                arrayEntityCercle[0].cercleX == 50) ||
+            (e.key.toLowerCase() == "s" &&
+                arrayEntityCercle[0].cercleX == 150) ||
+            (e.key.toLowerCase() == "d" &&
+                arrayEntityCercle[0].cercleX == 250) ||
+            (e.key.toLowerCase() == "k" &&
+                arrayEntityCercle[0].cercleX == 350) ||
+            (e.key.toLowerCase() == "l" &&
+                arrayEntityCercle[0].cercleX == 450) ||
             (e.key.toLowerCase() == "m" && arrayEntityCercle[0].cercleX == 550)
         ) {
             point += 1;
@@ -79,8 +87,6 @@ document.addEventListener("keyup", (e) => {
         }
     }
 });
-
-arrayEntityCercle;
 
 function draw(arrayEntityCercle) {
     // Draw a cercle
