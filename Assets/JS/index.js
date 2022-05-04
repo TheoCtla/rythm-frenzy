@@ -18,11 +18,13 @@ let audio = document.getElementById("audio");
 arrayEntityCercle.push(test);
 
 canvas.style.display = "none";
+key.style.display = "none"
 
 button.onclick = init;
 button.addEventListener("click", () => {
     button.style.display = "none";
     canvas.style.display = "block";
+    key.style.display = "block"
     audio.play();
 });
 
@@ -44,7 +46,7 @@ function gameLoop(timeStamp) {
     update(arrayEntityCercle);
 
     slow += 1;
-    if (slow == 100) {
+    if (slow == 68) {
         let pouet = createCercle();
         arrayEntityCercle.push(pouet);
         slow = 0;
@@ -109,7 +111,7 @@ function draw(arrayEntityCercle) {
 function update(arrayEntityCercle) {
     for (let i = 0; i < arrayEntityCercle.length; i++) {
         cercleY += movingSpeed * secondsPassed;
-        arrayEntityCercle[i].cercleY += (movingSpeed * secondsPassed) / 2;
+        arrayEntityCercle[i].cercleY += (movingSpeed * secondsPassed) / 1.2;
     }
 }
 
