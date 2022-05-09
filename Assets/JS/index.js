@@ -1,57 +1,121 @@
 "use strict";
-let canvas;
-let context;
-let cercleX = randCercleX()
-let cercleY = 0
+let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
+let cercleY = 0;
 let secondsPassed = 0;
 let oldTimeStamp = 0;
 let movingSpeed = 50;
+let arrayEntityCercle = [];
+let slow = 0;
+let test = createCercle();
+let key = document.getElementById("Letter");
+let compteur = document.getElementById("compteur");
+let erreur = document.getElementById("erreur");
+let point = 0;
+let lose = 5;
+let button = document.getElementById("start");
+let audio = document.getElementById("audio");
+arrayEntityCercle.push(test);
 
-window.onload = init;
+canvas.style.display = "none";
+key.style.display = "none";
 
-function init(){
-    // Get a reference to the canvas
-    canvas = document.getElementById('canvas');
-    context = canvas.getContext('2d');
+button.onclick = init;
+button.addEventListener("click", () => {
+    button.style.display = "none";
+    canvas.style.display = "block";
+    key.style.display ="block";
+    audio.play();
+});
 
+function init() {
     window.requestAnimationFrame(gameLoop);
 }
 
-function gameLoop(timeStamp){
+function gameLoop(timeStamp) {
     // Calculate how much time has passed
-    secondsPassed = (timeStamp - oldTimeStamp) / 0.001;
+    secondsPassed = (timeStamp - oldTimeStamp) / 100;
     oldTimeStamp = timeStamp;
     // Move forward in time with a maximum amount
     secondsPassed = Math.min(secondsPassed, 0.1);
-    
+
     // Pass the time to the update
-    update();
-    draw();
-
-    // Keep requesting new frames
-    window.requestAnimationFrame(gameLoop);
-}
-
-function draw(){
-
     context.clearRect(0, 0, canvas.width, canvas.height);
+    drawTab();
+    draw(arrayEntityCercle);
+    update(arrayEntityCercle);
+
+    slow += 1;
+    if (slow == 100) {
+        let pouet = createCercle();
+        arrayEntityCercle.push(pouet);
+        slow = 0;
+    }
+    if (arrayEntityCercle[0].cercleY >= 700) {
+        arrayEntityCercle.shift();
+        lose -= 1;
+        erreur.textContent = "il vous reste" +" "+ lose +" "+ "tentatives";
+    }
+    if (lose > 0) {
+        window.requestAnimationFrame(gameLoop);
+    } else {
+        audio.pause();
+        audio.currentTime = 0;
+        alert("perdu");
+    }
+}
+
+document.addEventListener("keyup", (e) => {
+    if (
+        arrayEntityCercle[0].cercleY > 575 &&
+        arrayEntityCercle[0].cercleY < 675
+    ) {
+        if (
+            (e.key.toLowerCase() == "q" &&
+                arrayEntityCercle[0].cercleX == 50) ||
+            (e.key.toLowerCase() == "s" &&
+                arrayEntityCercle[0].cercleX == 150) ||
+            (e.key.toLowerCase() == "d" &&
+                arrayEntityCercle[0].cercleX == 250) ||
+            (e.key.toLowerCase() == "k" &&
+                arrayEntityCercle[0].cercleX == 350) ||
+            (e.key.toLowerCase() == "l" &&
+                arrayEntityCercle[0].cercleX == 450) ||
+            (e.key.toLowerCase() == "m" && arrayEntityCercle[0].cercleX == 550)
+        ) {
+            point += 1;
+            arrayEntityCercle.shift();
+            compteur.textContent = "Score :" + point;
+        }
+    }
+});
+
+function draw(arrayEntityCercle) {
     // Draw a cercle
-    
-    context.fillStyle = '#ee1818';
-    context.beginPath();
-    context.arc(cercleX, cercleY, 35, 0, 2 * Math.PI);
-    context.fill();
-    context.strokeStyle = 'black';
-    context.stroke();
-
-    drawTab()
+    for (let i = 0; i < arrayEntityCercle.length; i++) {
+        colorCercle(arrayEntityCercle[i]);
+        context.beginPath();
+        context.arc(
+            arrayEntityCercle[i].cercleX,
+            arrayEntityCercle[i].cercleY,
+            35,
+            0,
+            2 * Math.PI
+        );
+        context.fill();
+        context.strokeStyle = "black";
+        context.stroke();
+    }
 }
 
-function update() {
-    cercleY += (movingSpeed * secondsPassed);
+function update(arrayEntityCercle) {
+    for (let i = 0; i < arrayEntityCercle.length; i++) {
+        cercleY += movingSpeed * secondsPassed;
+        arrayEntityCercle[i].cercleY += (movingSpeed * secondsPassed) / 2;
+    }
 }
 
-function drawTab () {
+function drawTab() {
     context.beginPath();
     context.moveTo(100, 0);
     context.lineTo(100, 650);
@@ -82,11 +146,76 @@ function drawTab () {
     context.lineTo(600, 550);
     context.stroke();
 
+    context.beginPath();
+    context.fillStyle = "#FF0000";
+    context.arc(50, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    context.beginPath();
+    context.fillStyle = "#FAFF00";
+    context.arc(150, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    context.beginPath();
+    context.fillStyle = "#24FF00";
+    context.arc(250, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    context.beginPath();
+    context.fillStyle = "#00F0FF";
+    context.arc(350, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    context.beginPath();
+    context.fillStyle = "#001AFF";
+    context.arc(450, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
+
+    context.beginPath();
+    context.fillStyle = "#BD00FF";
+    context.arc(550, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
 }
 
 function randCercleX() {
-    var X = [50, 150, 250, 350, 450, 550]; 
+    var X = [50, 150, 250, 350, 450, 550];
     var rand = X[(Math.random() * X.length) | 0];
-    return rand
+    return rand;
 }
 
+function colorCercle(arrayEntityCercle) {
+    if (arrayEntityCercle.cercleX == 50) {
+        context.fillStyle = "#FF0000";
+    } else if (arrayEntityCercle.cercleX == 150) {
+        context.fillStyle = "#FAFF00";
+    } else if (arrayEntityCercle.cercleX == 250) {
+        context.fillStyle = "#24FF00";
+    } else if (arrayEntityCercle.cercleX == 350) {
+        context.fillStyle = "#00F0FF";
+    } else if (arrayEntityCercle.cercleX == 450) {
+        context.fillStyle = "#001AFF";
+    } else {
+        context.fillStyle = "#BD00FF";
+    }
+}
+
+function createCercle() {
+    let cercleX = randCercleX();
+    var cercle = {
+        cercleY: 0,
+        cercleX: cercleX,
+    };
+    return cercle;
+}
