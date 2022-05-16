@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-
-
 #canvas {
     display: block;
     margin : 0 auto;
@@ -13,6 +11,7 @@
 
 button {
     display: inline-block;
+   
 }
 
 .btn {
@@ -25,7 +24,6 @@ button {
     font-family: 'Bebas Neue', cursive;
     font-size: 1.3em;
 }
-
 
 #q {
     background:#FF0000;
@@ -57,25 +55,50 @@ button {
     background:#BD00FF;
     box-shadow: 0 -2px 0 3px #630386 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset
 }
+
 body {
-    background-image: url(https://cdn.discordapp.com/attachments/950364547372425256/971332139683577876/couverture.jpg);
+    background-image: url(https://i.jeuxactus.com/datas/jeux/g/u/guitar-hero-iii-legends-of-rock/xl/guitar-hero-iii-le-4e263239b9971.jpg);
     background-repeat: no-repeat;
     background-position-x: center;
-   background-size:cover;
+    background-size:cover;
+   
 }
 #compteur {
-    
     color:crimson;
     text-decoration: underline;
     width: 9em;
     margin: 2px;
     background:black;
 }
+
 #erreur {
     color: white;
     text-decoration: underline;
     background: blue;
-    width: 9em;
+    width: 12em;
     margin: 2px;
     background: green;
+}
+
+p {
+    font-family:fantasy;
+    text-align: center;
+    color:white;
+    font-size: 50px;
+    text-decoration: underline;
+}
+.play {
+    font-family: 'Courier New', Courier, monospace;
+    color: #FF0000;
+}
+#strt {
+    text-align: center;
+    overflow:auto;
+}
+#start {
+    background-color:black;
+    font-size: 30px;
+}
+.all {
+display: list-item;
 }

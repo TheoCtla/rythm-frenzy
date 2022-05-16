@@ -218,4 +218,4 @@ function createCercle() {
         cercleX: cercleX,
     };
     return cercle;
-}
+} 
