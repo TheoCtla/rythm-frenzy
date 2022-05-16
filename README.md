@@ -1,1 +1,1 @@
-# rythm-frenzy
+# rythme-frenzy
