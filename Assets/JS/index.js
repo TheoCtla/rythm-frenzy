@@ -121,30 +121,37 @@ function drawTab() {
     context.lineTo(100, 650);
     context.stroke();
 
-    context.beginPath();
-    context.moveTo(200, 0);
-    context.lineTo(200, 650);
-    context.stroke();
+  context.beginPath();
+  context.moveTo(200, 0);
+  context.lineTo(200, 650);
+  context.stroke();
 
-    context.beginPath();
-    context.moveTo(300, 0);
-    context.lineTo(300, 650);
-    context.stroke();
+  context.beginPath();
+  context.moveTo(300, 0);
+  context.lineTo(300, 650);
+  context.stroke();
 
-    context.beginPath();
-    context.moveTo(400, 0);
-    context.lineTo(400, 650);
-    context.stroke();
+  context.beginPath();
+  context.moveTo(400, 0);
+  context.lineTo(400, 650);
+  context.stroke();
 
-    context.beginPath();
-    context.moveTo(500, 0);
-    context.lineTo(500, 650);
-    context.stroke();
+  context.beginPath();
+  context.moveTo(500, 0);
+  context.lineTo(500, 650);
+  context.stroke();
 
-    context.beginPath();
-    context.moveTo(0, 550);
-    context.lineTo(600, 550);
-    context.stroke();
+  context.beginPath();
+  context.moveTo(0, 550);
+  context.lineTo(600, 550);
+  context.stroke();
+
+  context.beginPath();
+  context.fillStyle = "#FF0000";
+  context.arc(50, 600, 35, 0, 2 * Math.PI);
+  context.fill();
+  context.strokeStyle = "black";
+  context.stroke();
 
     context.beginPath();
     context.fillStyle = "#FF0000";
