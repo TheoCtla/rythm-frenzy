@@ -15,16 +15,23 @@ let point = 0;
 let lose = 5;
 let button = document.getElementById("start");
 let audio = document.getElementById("audio");
+let tittle = document.getElementById("tittle")
 arrayEntityCercle.push(test);
 
 canvas.style.display = "none";
-key.style.display = "none"
+key.style.display = "none";
+compteur.style.display = "none";
+erreur.style.display = "none";
+console.log(tittle)
 
 button.onclick = init;
 button.addEventListener("click", () => {
     button.style.display = "none";
     canvas.style.display = "block";
-    key.style.display = "block"
+    key.style.display = "inline-block";
+    compteur.style.display = "block";
+    erreur.style.display = "block";
+    tittle.style.display = "none";
     audio.play();
 });
 
@@ -54,7 +61,7 @@ function gameLoop(timeStamp) {
     if (arrayEntityCercle[0].cercleY >= 700) {
         arrayEntityCercle.shift();
         lose -= 1;
-        erreur.textContent = lose;
+        erreur.textContent = `vie :  ${lose}`;
     }
     if (lose > 0) {
         window.requestAnimationFrame(gameLoop);
@@ -85,7 +92,7 @@ document.addEventListener("keyup", (e) => {
         ) {
             point += 1;
             arrayEntityCercle.shift();
-            compteur.textContent = point;
+            compteur.textContent = `point : ${point}`;
         }
     }
 });
@@ -121,37 +128,37 @@ function drawTab() {
     context.lineTo(100, 650);
     context.stroke();
 
-  context.beginPath();
-  context.moveTo(200, 0);
-  context.lineTo(200, 650);
-  context.stroke();
+    context.beginPath();
+    context.moveTo(200, 0);
+    context.lineTo(200, 650);
+    context.stroke();
 
-  context.beginPath();
-  context.moveTo(300, 0);
-  context.lineTo(300, 650);
-  context.stroke();
+    context.beginPath();
+    context.moveTo(300, 0);
+    context.lineTo(300, 650);
+    context.stroke();
 
-  context.beginPath();
-  context.moveTo(400, 0);
-  context.lineTo(400, 650);
-  context.stroke();
+    context.beginPath();
+    context.moveTo(400, 0);
+    context.lineTo(400, 650);
+    context.stroke();
 
-  context.beginPath();
-  context.moveTo(500, 0);
-  context.lineTo(500, 650);
-  context.stroke();
+    context.beginPath();
+    context.moveTo(500, 0);
+    context.lineTo(500, 650);
+    context.stroke();
 
-  context.beginPath();
-  context.moveTo(0, 550);
-  context.lineTo(600, 550);
-  context.stroke();
+    context.beginPath();
+    context.moveTo(0, 550);
+    context.lineTo(600, 550);
+    context.stroke();
 
-  context.beginPath();
-  context.fillStyle = "#FF0000";
-  context.arc(50, 600, 35, 0, 2 * Math.PI);
-  context.fill();
-  context.strokeStyle = "black";
-  context.stroke();
+    context.beginPath();
+    context.fillStyle = "#FF0000";
+    context.arc(50, 600, 35, 0, 2 * Math.PI);
+    context.fill();
+    context.strokeStyle = "black";
+    context.stroke();
 
     context.beginPath();
     context.fillStyle = "#FF0000";

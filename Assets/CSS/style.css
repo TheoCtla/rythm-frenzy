@@ -1,59 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+#tittle {
+    font-family: "Bebas Neue", cursive;
+    font-size: 4rem;
+    color: white;
+}
 
+body {
+    background-image: url(../IMG/concert-03.jpg);
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start {
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+    color: black;
+    font-family: "Bebas Neue", cursive;
+    position: absolute;
+    top: 50%;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+}
+
+#parent {
+    position: relative;
+}
 
 #canvas {
+    margin: 0 auto;
+}
+
+#score {
+    position: relative;
+    z-index: 2;
+    padding: 0.875rem 0;
+    font-size: 1.1rem;
+    align-items: center;
+    /* background: #000; */
+
     display: block;
-    margin : 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100px;
+    color: white;
+    margin-bottom: 10px;
+    border: 4px solid;
+    border-image: linear-gradient(
+            270deg,
+            #6f42c1,
+            #0366d6,
+            #28a745,
+            #ffd33d,
+            #f66a0a,
+            #d73a49,
+            #6f42c1
+        )
+        10;
+    border-radius: 10px;
 }
 
 #Letter {
+    display: inline-block;
     text-align: center;
-}
-
-button {
-    display: inline-block.
+    position: absolute;
+    margin-top: -10%;
 }
 
 .btn {
-    border: 3px solid #fff;
-    border-radius: 100%;
-    height: 5vw;
-    width: 5vw;
-    text-align: center;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 68px;
+    font-family: "Bebas Neue", cursive;
     color: white;
-    font-family: 'Bebas Neue', cursive;
     font-size: 1.3em;
+    text-align: center;
 }
-
 
 #q {
-    background:#FF0000;
-    box-shadow: 0 -2px 0 3px #8b1111 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset;
-
+    margin-left: 95px;
 }
 
-#s {
-    background:#FAFF00;
-    box-shadow: 0 -2px 0 3px #a4a717 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset
-}
+/* border: 3px solid #fff;
+    border-radius: 100%;
+    height: 50%;
+    width: 50%;
+    margin: 9px; 
+
 
 #d {
-    background:#24FF00;
-    box-shadow: 0 -2px 0 3px #179904 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset;
+    background: #24ff00;
+    box-shadow: 0 -2px 0 3px #179904 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
+        0 15px rgba(255, 255, 255, 0.25) inset;
 }
 
 #k {
-    background:#00F0FF;
-    box-shadow: 0 -2px 0 3px #027f88 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset;
+    background: #00f0ff;
+    box-shadow: 0 -2px 0 3px #027f88 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
+        0 15px rgba(255, 255, 255, 0.25) inset;
 }
 
 #l {
-    background:#001AFF;
-    box-shadow: 0 -2px 0 3px #021091 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset;
+    background: #001aff;
+    box-shadow: 0 -2px 0 3px #021091 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
+        0 15px rgba(255, 255, 255, 0.25) inset;
 }
 
 #m {
-    background:#BD00FF;
-    box-shadow: 0 -2px 0 3px #630386 inset, 0 5px 5px rgba(3, 25, 41, 0.17), 0 15px rgba(255, 255, 255, 0.25) inset
-}
+    background: #bd00ff;
+    box-shadow: 0 -2px 0 3px #630386 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
+        0 15px rgba(255, 255, 255, 0.25) inset;
+} */

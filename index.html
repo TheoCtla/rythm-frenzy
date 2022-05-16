@@ -7,31 +7,42 @@
         <link rel="stylesheet" href="./Assets/CSS/style.css" />
         <title>Document</title>
     </head>
+
     <body>
-        <button id="start">start</button>
-        <audio id="audio" src="./Assets/MP3/triangle.mp3"></audio>
-        <canvas
-            id="canvas"
-            width="600"
-            height="650"
-            style="
-                border: 1px solid black;
-                background-image: (url(./Assets/IMG/couverture.jpg));
-            "
-        >
-        </canvas>
-        <div id="Letter">
-            <button class="btn" id="q">q</button>
-            <button class="btn" id="s">s</button>
-            <button class="btn" id="d">d</button>
-            <button class="btn" id="k">k</button>
-            <button class="btn" id="l">l</button>
-            <button class="btn" id="m">m</button>
-        </div>
-        <div id="compteur"></div>
-
-        <div id="erreur"></div>
-
+        <section class="site">
+            <h1 id="tittle">Guitar Hero</h1>
+            <button id="start">start</button>
+            <div id="score">
+                <div id="compteur"></div>
+                <div id="erreur"></div>
+            </div>
+            <audio id="audio" src="./Assets/MP3/triangle.mp3"></audio>
+            <div id="parent">
+                <div id="game">
+                    <canvas
+                        id="canvas"
+                        width="600"
+                        height="650"
+                        style="
+                            border: 1px solid black;
+                            background-image: (
+                                url(./Assets/IMG/couverture.jpg)
+                            );
+                            width: 80%;
+                        "
+                    >
+                    </canvas>
+                </div>
+                <div id="Letter">
+                    <div class="btn" id="q">q</div>
+                    <div class="btn" id="s">s</div>
+                    <div class="btn" id="d">d</div>
+                    <div class="btn" id="k">k</div>
+                    <div class="btn" id="l">l</div>
+                    <div class="btn" id="m">m</div>
+                </div>
+            </div>
+        </section>
         <script src="./Assets/JS/index.js"></script>
     </body>
 </html>
