@@ -49,28 +49,20 @@ body {
     position: relative;
     z-index: 2;
     padding: 0.875rem 0;
-    font-size: 1.1rem;
+    font-size: 2rem;
     align-items: center;
     /* background: #000; */
     text-align: center;
     box-sizing: border-box;
     height: 100%;
-    width: 200px;
+    width: 250px;
     color: white;
     margin-bottom: 10px;
     /* border: 4px solid; */
-    /* border-image: linear-gradient(
-            270deg,
-            #6f42c1,
-            #0366d6,
-            #28a745,
-            #ffd33d,
-            #f66a0a,
-            #d73a49,
-            #6f42c1
-        )
-        10; */
+    /* border-image: linear-gradient( 270deg, #6f42c1, #0366d6, #28a745, #ffd33d, #f66a0a, #d73a49, #6f42c1 ) 10; */
     border-radius: 10px;
+    font-family: "Bebas Neue", cursive;
+
 }
 
 #Letter {
