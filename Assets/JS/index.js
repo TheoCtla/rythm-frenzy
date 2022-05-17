@@ -16,7 +16,7 @@ let lose = 5;
 let button = document.getElementById("start");
 let audio = document.getElementById("audio");
 let tittle = document.getElementById("tittle");
-let flex_compteur  = document.getElementById("flex_compteur");
+let flex_compteur = document.getElementById("flex_compteur");
 let flex_erreurs = document.getElementById("flex_erreur");
 arrayEntityCercle.push(test);
 
@@ -24,9 +24,9 @@ canvas.style.display = "none";
 key.style.display = "none";
 compteur.style.display = "none";
 erreur.style.display = "none";
-flex_compteur.style.display = 'none';
-flex_erreurs.style.display = 'none';
-console.log(tittle)
+flex_compteur.style.display = "none";
+flex_erreurs.style.display = "none";
+console.log(tittle);
 
 button.onclick = init;
 button.addEventListener("click", () => {
@@ -36,9 +36,9 @@ button.addEventListener("click", () => {
     compteur.style.display = "block";
     erreur.style.display = "block";
     // tittle.style.display = "none";
-    flex_compteur.style.display = 'flex';
-    flex_erreurs.style.display = 'flex';
-    
+    flex_compteur.style.display = "flex";
+    flex_erreurs.style.display = "flex";
+
     audio.play();
 });
 
@@ -75,7 +75,13 @@ function gameLoop(timeStamp) {
     } else {
         audio.pause();
         audio.currentTime = 0;
-        alert("null");
+        if (
+            confirm(
+                "Tu as perdu, dommage !\nMais tu peux retenter ta chance en appuyant sur ok."
+            ) == true
+        ) {
+            window.location.href = "../";
+        }
     }
 }
 
@@ -84,22 +90,67 @@ document.addEventListener("keyup", (e) => {
         arrayEntityCercle[0].cercleY > 575 &&
         arrayEntityCercle[0].cercleY < 675
     ) {
-        if (
-            (e.key.toLowerCase() == "q" &&
-                arrayEntityCercle[0].cercleX == 50) ||
-            (e.key.toLowerCase() == "s" &&
-                arrayEntityCercle[0].cercleX == 150) ||
-            (e.key.toLowerCase() == "d" &&
-                arrayEntityCercle[0].cercleX == 250) ||
-            (e.key.toLowerCase() == "k" &&
-                arrayEntityCercle[0].cercleX == 350) ||
-            (e.key.toLowerCase() == "l" &&
-                arrayEntityCercle[0].cercleX == 450) ||
-            (e.key.toLowerCase() == "m" && arrayEntityCercle[0].cercleX == 550)
-        ) {
-            point += 1;
-            arrayEntityCercle.shift();
-            compteur.textContent = point;
+        switch (e.key.toLowerCase()) {
+            case "q":
+                if (arrayEntityCercle[0].cercleX == 50) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
+            case "s":
+                if (arrayEntityCercle[0].cercleX == 150) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
+            case "d":
+                if (arrayEntityCercle[0].cercleX == 250) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
+            case "k":
+                if (arrayEntityCercle[0].cercleX == 350) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
+            case "l":
+                if (arrayEntityCercle[0].cercleX == 450) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
+            case "m":
+                if (arrayEntityCercle[0].cercleX == 550) {
+                    point += 1;
+                    arrayEntityCercle.shift();
+                    compteur.textContent = point;
+                } else {
+                    point -= 1;
+                    compteur.textContent = point;
+                }
+                break;
         }
     }
 });
