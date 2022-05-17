@@ -16,15 +16,17 @@ let lose = 5;
 let button = document.getElementById("start");
 let audio = document.getElementById("audio");
 let tittle = document.getElementById("tittle");
-let score = document.getElementById("score");
+let flex_compteur  = document.getElementById("flex_compteur");
+let flex_erreurs = document.getElementById("flex_erreur");
 arrayEntityCercle.push(test);
 
 canvas.style.display = "none";
 key.style.display = "none";
 compteur.style.display = "none";
 erreur.style.display = "none";
-score.style.display = "none";
-console.log(tittle);
+flex_compteur.style.display = 'none';
+flex_erreurs.style.display = 'none';
+console.log(tittle)
 
 button.onclick = init;
 button.addEventListener("click", () => {
@@ -34,8 +36,9 @@ button.addEventListener("click", () => {
     compteur.style.display = "block";
     erreur.style.display = "block";
     tittle.style.display = "none";
-    score.style.display = "block";
-
+    flex_compteur.style.display = 'flex';
+    flex_erreurs.style.display = 'flex';
+    
     audio.play();
 });
 
@@ -65,7 +68,7 @@ function gameLoop(timeStamp) {
     if (arrayEntityCercle[0].cercleY >= 700) {
         arrayEntityCercle.shift();
         lose -= 1;
-        erreur.textContent = `vie :  ${lose}`;
+        erreur.textContent = lose;
     }
     if (lose > 0) {
         window.requestAnimationFrame(gameLoop);
@@ -96,7 +99,7 @@ document.addEventListener("keyup", (e) => {
         ) {
             point += 1;
             arrayEntityCercle.shift();
-            compteur.textContent = `point : ${point}`;
+            compteur.textContent = point;
         }
     }
 });
