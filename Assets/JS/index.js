@@ -35,7 +35,7 @@ button.addEventListener("click", () => {
     key.style.display = "inline-block";
     compteur.style.display = "block";
     erreur.style.display = "block";
-    tittle.style.display = "none";
+    // tittle.style.display = "none";
     flex_compteur.style.display = 'flex';
     flex_erreurs.style.display = 'flex';
     

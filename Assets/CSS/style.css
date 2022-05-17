@@ -91,21 +91,26 @@ body {
     height: 50%;
     width: 50%;
     margin: 9px; 
+
+
 #d {
     background: #24ff00;
     box-shadow: 0 -2px 0 3px #179904 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
         0 15px rgba(255, 255, 255, 0.25) inset;
 }
+
 #k {
     background: #00f0ff;
     box-shadow: 0 -2px 0 3px #027f88 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
         0 15px rgba(255, 255, 255, 0.25) inset;
 }
+
 #l {
     background: #001aff;
     box-shadow: 0 -2px 0 3px #021091 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
         0 15px rgba(255, 255, 255, 0.25) inset;
 }
+
 #m {
     background: #bd00ff;
     box-shadow: 0 -2px 0 3px #630386 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
