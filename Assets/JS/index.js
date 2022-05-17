@@ -15,14 +15,16 @@ let point = 0;
 let lose = 5;
 let button = document.getElementById("start");
 let audio = document.getElementById("audio");
-let tittle = document.getElementById("tittle")
+let tittle = document.getElementById("tittle");
+let score = document.getElementById("score");
 arrayEntityCercle.push(test);
 
 canvas.style.display = "none";
 key.style.display = "none";
 compteur.style.display = "none";
 erreur.style.display = "none";
-console.log(tittle)
+score.style.display = "none";
+console.log(tittle);
 
 button.onclick = init;
 button.addEventListener("click", () => {
@@ -32,6 +34,8 @@ button.addEventListener("click", () => {
     compteur.style.display = "block";
     erreur.style.display = "block";
     tittle.style.display = "none";
+    score.style.display = "block";
+
     audio.play();
 });
 

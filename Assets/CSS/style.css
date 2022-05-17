@@ -41,21 +41,15 @@ body {
 }
 
 #score {
-    position: relative;
-    z-index: 2;
-    padding: 0.875rem 0;
     font-size: 1.1rem;
     align-items: center;
-    /* background: #000; */
-
-    display: block;
     text-align: center;
     box-sizing: border-box;
     height: 100%;
     width: 100px;
     color: white;
-    margin-bottom: 10px;
-    border: 4px solid;
+    margin: 10px;
+    /* border: 4px solid;
     border-image: linear-gradient(
             270deg,
             #6f42c1,
@@ -66,8 +60,7 @@ body {
             #d73a49,
             #6f42c1
         )
-        10;
-    border-radius: 10px;
+        10; */
 }
 
 #Letter {
